@@ -1,3 +1,3 @@
 # Workshop Slides
 
-Directory for slides of the [Simulation-based Inference workshop](mlcolab.org/sbi-workshop ). It contains an example for `jupyter` slides with interactive elements. Based on this example, we will create a template in this style for every speaker. Feel free to use the template but do not feel forced to. Any kind of slide-set is welcome! If you have any questions regarding the template, `interact`, or `RISE`, contact [Stefan](https://github.com/wastedsummer).
+Directory for slides of the [Simulation-based Inference workshop](mlcolab.org/sbi-workshop). It contains an example for `jupyter` slides with interactive elements. Based on this example, we will create a template in this style for every speaker. Feel free to use the template but do not feel forced to. Any kind of slide-set is welcome! If you have any questions regarding the template, `interact`, or `RISE`, contact [Stefan](https://github.com/wastedsummer).
