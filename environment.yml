@@ -1,0 +1,14 @@
+name: sbi_workshop
+channels:
+- pytorch
+- defaults
+dependencies:
+- python=3.7.10
+- pytorch=1.8.1
+- scikit-learn
+- jupyter
+- jupyterlab
+- scipy
+- pip:
+  - "sbi==0.16.0"
+  - "rise==5.7.1 "
