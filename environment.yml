@@ -2,6 +2,7 @@ name: sbi_workshop
 channels:
 - pytorch
 - defaults
+- conda-forge
 dependencies:
 - python=3.7.10
 - pytorch=1.8.1
@@ -9,6 +10,8 @@ dependencies:
 - jupyter
 - jupyterlab
 - scipy
+- nbstripout
+- pip
 - pip:
   - "sbi==0.16.0"
-  - "rise==5.7.1 "
+  - "rise==5.7.1"
