@@ -78,8 +78,8 @@ def mog_sample(logits, means, variances):
     chosen_variances = variances[0, choices, :]
 
     _, _, output_dim = means.shape
-    standard_normal_samples = torch.randn(output_dim, 1)
-    zero_mean_samples = standard_normal_samples * torch.sqrt(chosen_variances)
+    standard_normal_sample = torch.randn(output_dim)
+    zero_mean_samples = standard_normal_sample * torch.sqrt(chosen_variances)
     samples = chosen_means + zero_mean_samples
 
     return samples
