@@ -15,3 +15,4 @@ dependencies:
 - pip:
   - "sbi==0.16.0"
   - "rise==5.7.1"
+  - sbibm
