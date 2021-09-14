@@ -14149,9 +14149,7 @@ div.jp-OutputPrompt {
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Simple-pendulum">Simple pendulum<a class="anchor-link" href="#Simple-pendulum">&#182;</a></h3><p>How many slides does it take a physicist to say harmonic oscillator?</p>
-<p>No friction, rigid massless cord, massless bob, 2D, uniform g, fixed support:</p>
-$$\frac{{\rm d}^2 \theta}{{\rm d} t^2} + \frac{g}{\ell}\, \sin\theta = 0$$<ul>
+<h3 id="Simple-pendulum">Simple pendulum<a class="anchor-link" href="#Simple-pendulum">&#182;</a></h3>$$\frac{{\rm d}^2 \theta}{{\rm d} t^2} + \frac{g}{\ell}\, \sin\theta = 0$$<ul>
 <li>Can <em>predict</em> angles $\theta(t)$ given $g,\ell, \theta(0)$.</li>
 <li><p>Can <em>infer</em> $g$ or $\ell$ from measured $\theta(t)$.</p>
 <p>Small amplitude $\sin\theta\simeq\theta$ leads to $T=2\pi \sqrt{\ell/g}$, a "summary statistic" — not all of $\theta(t)$ needed for inference. $T$ measured directly or estimated from traces $\theta(t)$.</p>
@@ -14165,7 +14163,16 @@ $$\frac{{\rm d}^2 \theta}{{\rm d} t^2} + \frac{g}{\ell}\, \sin\theta = 0$$<ul>
 </ul>
 
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>How many slides does it take a physicist to say harmonic oscillator?</p>
+<p>No friction, rigid massless cord, massless bob, 2D, uniform g, fixed support:</p>
+
+</div>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Simulators,-everywhere">Simulators, everywhere<a class="anchor-link" href="#Simulators,-everywhere">&#182;</a></h3><p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7c3e6085-a463-44d4-a1ac-0f27b42c7c23/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210913%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210913T140912Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=2fe73e1bf12558cac00192222b1e7dd0e9dc4dddaecf50dacfedf23ad990652b&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22Untitled.png%22" alt="Untitled"></p>
@@ -14175,7 +14182,7 @@ $$\frac{{\rm d}^2 \theta}{{\rm d} t^2} + \frac{g}{\ell}\, \sin\theta = 0$$<ul>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
+<h3 id="Simulators,-everywhere">Simulators, everywhere<a class="anchor-link" href="#Simulators,-everywhere">&#182;</a></h3><ul>
 <li>Few models analytically tractable, mostly simplified cases, e.g. 2-body problem</li>
 <li>20th-century: explosion of expressive simulators, "complex science"<ul>
 <li>as numerical solvers for <em>explicit</em> models (e.g. PDEs) — based on <em>discretization</em></li>
@@ -14326,9 +14333,24 @@ SDE: stochastic differential equation: DE with stochastic fluctuations (→ stoc
 <p>Formalizing heuristics helps in understanding, running simulator helps generate hypotheses.</p>
 <p><strong>Hypothesis testing</strong></p>
 <p>Expected to quantiatively reproduce empirical measurements.</p>
+<p>"Explanation requires reduction", so all models are misspecified.</p>
+<p>Conflict between modelling "from the null up" (Premo, 2007) and ommitted variable bias.</p>
+<p>It's difficult to know whether lack of fit is due to misspecification or bad inference.</p>
 
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Model comparison out of this workshop's scope. Bayes factors problematic.</p>
+<p>In <em>Explaining the Past with ABM: On Modelling Philosophy</em>, by Mark W. Lake in Agent-based Modeling and Simulation in Archaeology Ed Reschreiter, Wurzer, Kowarik.</p>
+<p>Learning by Simulation Requires Experimentation not Just Emulation</p>
+<p>The most informative models are generative ("What I cannot create, I do not understand. - Feynman 1988")</p>
+<p>Explanatory Power Trades Complexity Against Fit.</p>
+
+</div>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Practical---introduce-your-simulators">Practical - introduce your simulators<a class="anchor-link" href="#Practical---introduce-your-simulators">&#182;</a></h3><p><a href="https://docs.google.com/presentation/d/1A3p8EumLKRAoojroU8TmnsHyqNQX1Lp45qjl1AoNIJQ/edit#slide=id.gebf7afe5fb_0_0">https://docs.google.com/presentation/d/1A3p8EumLKRAoojroU8TmnsHyqNQX1Lp45qjl1AoNIJQ/edit#slide=id.gebf7afe5fb_0_0</a></p>
@@ -14381,7 +14403,19 @@ Inference ❓
     See Baker et al. 2018 (https://royalsocietypublishing.org/doi/pdf/10.1098/rsbl.2017.0660)
 </html>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Provisory terminology: forward models $\simeq$  mechanistic models $\simeq$ simulators.</p>
+<p>Interpretable parameters have physical units and known interactions with other aspects of reality. But simulator parameters can also be <strong>meaningful</strong> abstractions (e.g. 'utility' in a microeconomic simulator). They still have a mechanistic role, stipulated by the relations they obey with other quantities in the simulator, but they represent concepts, operationalizations or aggregates and cannot be traced down to more primitive laws.</p>
+<p>No black/white: models can be written entirely as stochastic statistical models on individuals (especially relevant for low counts) — and inference can be made analytical, with much work.</p>
+<p>In older stats literature <em>stochastic simulation</em> connotes Monte Carlo methods only.</p>
+<p><strong>Causal models</strong> yet another category, involve intervention ('do'-calculus). Out of scope.</p>
+
+</div>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <html>
@@ -14419,7 +14453,15 @@ Inference ❓
   </body>
 </html>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>It seems to me that the process of construction of statistical model (above all, NNs) is driven by: the number and type of parameters that can accomodate the data (scales with the data). Whereas in cartoon form, for mechanistic models you use the number and type of parameters that fit the hypotheses (scales with the hypotheses) / and that I can interpret either before or after fitting the model (scales with interpretive power). The fine line would be drawn by what one expects from the model (predictive performance, vs. interpretability).</p>
+
+</div>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Induction-vs.-deduction,-an-age-old-dichotomy">Induction vs. deduction, an age-old dichotomy<a class="anchor-link" href="#Induction-vs.-deduction,-an-age-old-dichotomy">&#182;</a></h3><p>Data reduction vs. theory making</p>
@@ -14474,7 +14516,8 @@ Inference ❓
 </ul>
 
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
@@ -14486,7 +14529,8 @@ Inference ❓
 </ul>
 
 </div>
-</div></section></section><section><section>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Bayesian-parameter-inference">Bayesian parameter inference<a class="anchor-link" href="#Bayesian-parameter-inference">&#182;</a></h3><p><strong>uncertainty:</strong> getting $\theta$ might be only one step in an inference or decision pipeline.</p>
@@ -14613,7 +14657,15 @@ Inference ❓
 <p>Note: numerical approximations → discreteness, limited compute</p>
 
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Note: numerical approximations → discreteness, limited compute</p>
+
+</div>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Simulator-as-generative-models">Simulator as generative models<a class="anchor-link" href="#Simulator-as-generative-models">&#182;</a></h3>$$\color{0B6E99}{p(\theta|x)} =\frac{ \color{E03E3E}{p (x|\theta)}\color{6940A5}{p(\theta)}}{\color{9B9A97}{\int_\theta p(x|\theta)\ p(\theta)}}$$<ul>
@@ -14624,7 +14676,8 @@ Inference ❓
 </ul>
 
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Main concern when writing simulators is to represent mechanistic processes accurately, not inferential tractability. Producing samples is trivial (= running) but evaluating their probabilities is often intractable.</p>
@@ -14633,7 +14686,8 @@ Inference ❓
 </ul>
 
 </div>
-</div></section></section><section><section>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Anatomy-of-a-simulator:-notation">Anatomy of a simulator: notation<a class="anchor-link" href="#Anatomy-of-a-simulator:-notation">&#182;</a></h3><p><em>Probabilistic programs</em> are programs with stochasticity that are interpreted as statistical models. In this sense, simulators are probabilistic programs, computer programs that</p>
@@ -14670,14 +14724,16 @@ Inference ❓
 </ul>
 
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Sampling efficiency can improve drastically with access to simulator internals: gradients and / or probabilities conditioned on latents. See Cranmer et al. 2020 and "Mining gold" papers (G. Louppe's lab).</p>
 <p>NB. Automatic differentiation is making great progress in differentiating through randomly decided control flow.</p>
 
 </div>
-</div></section></section><section><section>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Output-$x$-and-observation-$x_%7B%5Crm-o%7D$">Output $x$ and observation $x_{\rm o}$<a class="anchor-link" href="#Output-$x$-and-observation-$x_%7B%5Crm-o%7D$">&#182;</a></h3><ul>
@@ -14729,13 +14785,15 @@ $$p(x|\theta) = \int p(x,z|\theta)\,{\rm d}z\quad\text{sum over execution traces
 </ul>
 
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>⚠️ Not an expert here ☠️. Consult data augmentation (DA) literature: O'Neill (2010) for the categories, Fintzi et al. (2017) for criticism of reduction (p2-p3) and Bu et al. (2020) for an advanced example. Vono (2020) says about DA: introducing appropriate auxiliary variables while preserving the initial target probability distribution and offering a computationally efficient inference cannot be conducted in a systematic way.</p>
+<p>Not an expert here ☠️. Consult data augmentation (DA) literature: O'Neill (2010) for the categories, Fintzi et al. (2017) for criticism of reduction (p2-p3) and Bu et al. (2020) for an advanced example. Vono (2020) says about DA: introducing appropriate auxiliary variables while preserving the initial target probability distribution and offering a computationally efficient inference cannot be conducted in a systematic way.</p>
 
 </div>
-</div></section></section><section><section>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <html>
