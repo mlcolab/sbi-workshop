@@ -10,6 +10,7 @@ dependencies:
 - jupyter
 - jupyterlab
 - scipy
+- sdeint
 - nbstripout
 - jupyter_contrib_nbextensions
 - pip
