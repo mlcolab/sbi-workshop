@@ -14,13 +14,13 @@ font.family          : serif
 font.serif           : Arial, sans-serif
 font.sans-serif      : Arial, sans-serif
 font.cursive         : Arial, sans-serif
-font.size            : 8
-figure.titlesize     : 8
-legend.fontsize      : 8
-axes.titlesize       : 8
-axes.labelsize       : 8
-xtick.labelsize      : 8
-ytick.labelsize      : 8
+font.size            : 12
+figure.titlesize     : 12
+legend.fontsize      : 12
+axes.titlesize       : 12
+axes.labelsize       : 12
+xtick.labelsize      : 12
+ytick.labelsize      : 12
 
 image.interpolation   : nearest
 image.resample        : False
@@ -48,4 +48,5 @@ savefig.pad_inches   : 0.1
 svg.image_inline     : True
 svg.fonttype         : none
 
-legend.frameon       : False
+legend.frameon       : True
+
