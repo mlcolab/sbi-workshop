@@ -1,4 +1,4 @@
-name: sbi_workshop
+name: sbi-workshop
 channels:
 - pytorch
 - defaults
