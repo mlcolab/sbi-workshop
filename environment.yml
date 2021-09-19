@@ -10,7 +10,6 @@ dependencies:
 - jupyter
 - jupyterlab
 - scipy
-- sdeint
 - nbstripout
 - jupyter_contrib_nbextensions
 - pip
@@ -18,3 +17,4 @@ dependencies:
   - "sbi==0.16.0"
   - "rise==5.7.1"
   - sbibm
+  - sdeint
