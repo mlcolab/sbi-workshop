@@ -14177,7 +14177,7 @@ div.jp-OutputPrompt {
 </div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Likelihood-learning-two-several-clear-advantages:">Likelihood learning two several clear advantages:<a class="anchor-link" href="#Likelihood-learning-two-several-clear-advantages:">&#182;</a></h2><ol>
+<h2 id="Likelihood-learning-two-clear-advantages:">Likelihood learning two clear advantages:<a class="anchor-link" href="#Likelihood-learning-two-clear-advantages:">&#182;</a></h2><ol>
 <li><p>When $\theta$ is not prior-sampled, SNPE requires correction since the posterior changes. But SNLE works out of the box on any $(\theta, x)$ simulation pairs since the likelihood doesn't change. We can sample $\theta$ from any distribution, or pick it with any algoirthm.</p>
 </li>
 <li><p>With several statistically independent observations $x_i$, $p(x|\theta)=\prod_i p(x_i | \theta)$. Therefore we can learn the conditional distribution for just one observation. In contrast, learning $p(\theta | x)$ requires the network to take all observations as input at once, a more difficult learning task.</p>
@@ -14399,72 +14399,6 @@ $$\frac{p(\theta^\prime|x_o)}{p(\theta|x_o)} =
 <p>To obtain independent posterior samples, we keep every 30-th MCMC step.</p>
 
 </div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[272]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">theta_samples_decimated</span> <span class="o">=</span> <span class="n">theta_samples</span><span class="p">[::</span><span class="mi">30</span><span class="p">]</span>
-
-<span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
-<span class="n">bin_width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">bin_centers</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_width</span> <span class="o">/</span> <span class="mi">2</span>
-
-<span class="n">theta_hist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">theta_samples_decimated</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[283]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span> <span class="n">theta_hist</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">bin_width</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Estimated </span><span class="se">\n</span><span class="s1">$p(</span><span class="se">\\</span><span class="s1">theta | x_o)$&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;./figures/2_3_snle_snre/mcmc_posterior.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-
-<div class="jp-RenderedImage jp-OutputArea-output ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14497,15 +14431,15 @@ $$ d / (1 - d) = p(x|\theta) / p(x)$$
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Comparing-Our-Three-Methods">Comparing Our Three Methods<a class="anchor-link" href="#Comparing-Our-Three-Methods">&#182;</a></h3><p>SNPE</p>
+<h3 id="Comparing-Our-Three-Methods">Comparing Our Three Methods<a class="anchor-link" href="#Comparing-Our-Three-Methods">&#182;</a></h3><p><strong>SNPE</strong></p>
 <p><strong>+</strong> Fast amortized inference</p>
 <p><strong>-</strong> Requires special corrections if $\theta$ is not prior-sampled in the training data.</p>
-<p>SNLE</p>
+<p><strong>SNLE</strong></p>
 <p><strong>+</strong> Likelihood factorizes for i.i.d. observations</p>
 <p><strong>+</strong> Can generate training data with $\theta$ from any distribution or algorithm</p>
 <p><strong>-</strong> For high-dimensional observations, learning $p(x|\theta)$ can be very challenging</p>
 <p><strong>-</strong> Requires MCMC</p>
-<p>SNRE</p>
+<p><strong>SNRE</strong></p>
 <p><strong>+</strong> Likelihood factorizes for i.i.d. observations</p>
 <p><strong>+</strong> Training a classifier can be easier than training a NDE</p>
 <p><strong>-</strong> $\theta$ must be prior-sampled for training</p>
@@ -14516,13 +14450,26 @@ $$ d / (1 - d) = p(x|\theta) / p(x)$$
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Problem-specific-considerations">Problem-specific considerations<a class="anchor-link" href="#Problem-specific-considerations">&#182;</a></h2><h3 id="When-should-we-try-to-learn-$p(%5Ctheta%7Cx)$-directly,-and-when-should-we-learn-$p(x%7C%5Ctheta)$-and-use-MCMC?">When should we try to learn $p(\theta|x)$ directly, and when should we learn $p(x|\theta)$ and use MCMC?<a class="anchor-link" href="#When-should-we-try-to-learn-$p(%5Ctheta%7Cx)$-directly,-and-when-should-we-learn-$p(x%7C%5Ctheta)$-and-use-MCMC?">&#182;</a></h3><ul>
+<li>Consider the dimensions of both $x$ and $\theta$. Learning neural density estimators in high-dimensional spaces is challenging, but neural nets can take high dimesional input without much difficulty. So we can use SNPE when $\dim(x) &gt;&gt; \dim(\theta)$, and SNLE/SNRE when $\dim(x) &lt;&lt; \dim(\theta)$</li>
+<li>We can also make use of <strong>structure</strong> in $x$ or $\theta$. When one of these is an image (or time series), we could use a CNN (RNN) to process it as output. For learning distributions on $x$ or $\theta$, we can also use neural density estimators designed for these objects. Additional forms of structure (graphs, sets, etc.) can also be exploited.</li>
+<li>The feasibility of MCMC depends on the nature of the $\theta$ space, and its dimension.</li>
+<li>For high dimensional parameter spaces and expensive simulations, multi-round methods (where an initial posterior estimate is used to guide further simulations) seem to give a larger advantage. But SNPE might have issues when the prior has sharp boundaries, and repeated MCMC could end up more computationally expensive the the neural network training itself.</li>
+<li>All of these considerations are active areas of research, and the set of SBI/LFI problems for which these methods have been tested remains small!</li>
+</ul>
+
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Further-reading">Further reading<a class="anchor-link" href="#Further-reading">&#182;</a></h2><p><strong>SNL</strong> Papamakarios, Sterratt &amp; Murray. "Sequential neural likelihood: Fast likelihood-free inference with autoregressive flows." AISTATS, 2019.</p>
-<p><strong>MCMC</strong> Svensén &amp; Bishop. "Pattern recognition and machine learning." (2007).</p>
+<p><strong>MCMC</strong> Svensén &amp; Bishop. "Pattern recognition and machine learning." 2007.</p>
 <p><strong>SNRE</strong> Hermans, Begy &amp; Louppe. "Likelihood-free mcmc with amortized approximate ratio estimators." ICML, 2020.</p>
-<p><strong>Benchmarks</strong> Durkan, George Papamakarios &amp; Murray. "Sequential neural methods for likelihood-free inference." arXiv preprint arXiv:1811.08723 (2018).</p>
+<p>Durkan, Murray &amp; Papamakarios. "On contrastive learning for likelihood-free inference." ICML, 2020.</p>
+<p><strong>Benchmarks</strong> Durkan, George Papamakarios &amp; Murray. "Sequential neural methods for likelihood-free inference." arXiv, 2018.</p>
 <p>Lueckmann et al. "Benchmarking Simulation-Based Inference." AISTATS, 2021.</p>
-<p><strong>..and beyond!</strong> Brehmer, Johann, et al. "Mining gold from implicit models to improve likelihood-free inference." Proceedings of the National Academy of Sciences 117.10 (2020): 5242-5249.</p>
-<p>Cranmer, Kyle, Johann Brehmer, and Gilles Louppe. "The frontier of simulation-based inference." Proceedings of the National Academy of Sciences 117.48 (2020): 30055-30062.</p>
+<p><strong>..and beyond!</strong> Brehmer, Johann, et al. "Mining gold from implicit models to improve likelihood-free inference." PNAS, 2020.</p>
+<p>Cranmer, Kyle, Johann Brehmer, and Gilles Louppe. "The frontier of simulation-based inference." PNAS, 2020.</p>
 
 </div>
 </div></section></section>
