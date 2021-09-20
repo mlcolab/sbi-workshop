@@ -14099,7 +14099,7 @@ div.jp-OutputPrompt {
 <div class="slides"><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="SNLE-&amp;-SNRE">SNLE &amp; SNRE<a class="anchor-link" href="#SNLE-&amp;-SNRE">&#182;</a></h1><h2 id="Alternative-ML-Tools-to-Simulation-Based-Inference">Alternative ML Tools to Simulation Based Inference<a class="anchor-link" href="#Alternative-ML-Tools-to-Simulation-Based-Inference">&#182;</a></h2>
+<h1 id="SNLE-&amp;-SNRE">SNLE &amp; SNRE<a class="anchor-link" href="#SNLE-&amp;-SNRE">&#182;</a></h1><h2 id="Alternative-ML-Tools-for-Simulation-Based-Inference">Alternative ML Tools for Simulation Based Inference<a class="anchor-link" href="#Alternative-ML-Tools-for-Simulation-Based-Inference">&#182;</a></h2>
 </div>
 </div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14177,7 +14177,7 @@ div.jp-OutputPrompt {
 </div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Likelihood-learning-two-clear-advantages:">Likelihood learning two clear advantages:<a class="anchor-link" href="#Likelihood-learning-two-clear-advantages:">&#182;</a></h2><ol>
+<h2 id="Likelihood-learning-has-two-clear-advantages:">Likelihood learning has two clear advantages:<a class="anchor-link" href="#Likelihood-learning-has-two-clear-advantages:">&#182;</a></h2><ol>
 <li><p>When $\theta$ is not prior-sampled, SNPE requires correction since the posterior changes. But SNLE works out of the box on any $(\theta, x)$ simulation pairs since the likelihood doesn't change. We can sample $\theta$ from any distribution, or pick it with any algorithm.</p>
 </li>
 <li><p>With several statistically independent observations $x_i$, $p(x|\theta)=\prod_i p(x_i | \theta)$. Therefore we can learn the conditional distribution for just one observation. In contrast, learning $p(\theta | x)$ requires the network to take all observations as input at once, a more difficult learning task.</p>
@@ -14222,10 +14222,10 @@ div.jp-OutputPrompt {
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">TensorDataset</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">theta</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">TensorDataset</span><span class="p">(</span><span class="n">theta</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">train_loader</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
     <span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
 <span class="p">)</span>
@@ -14252,15 +14252,15 @@ div.jp-OutputPrompt {
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">opt</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">mdn</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">theta_batch</span><span class="p">,</span> <span class="n">x_batch</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
         <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-        <span class="n">weights_of_gaussians</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span> <span class="o">=</span> <span class="n">mdn</span><span class="o">.</span><span class="n">get_mixture_components</span><span class="p">(</span><span class="n">x_batch</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">mog_log_prob</span><span class="p">(</span><span class="n">theta_batch</span><span class="p">,</span> <span class="n">weights_of_gaussians</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">)</span>
+        <span class="n">weights_of_gaussians</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span> <span class="o">=</span> <span class="n">mdn</span><span class="o">.</span><span class="n">get_mixture_components</span><span class="p">(</span><span class="n">theta_batch</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">mog_log_prob</span><span class="p">(</span><span class="n">x_batch</span><span class="p">,</span> <span class="n">weights_of_gaussians</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">)</span>
         <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">out</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
         <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
         <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
@@ -14323,7 +14323,7 @@ $$\frac{p(\theta^\prime|x_o)}{p(\theta|x_o)} =
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[268]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># MCMC steps</span>
@@ -14380,7 +14380,7 @@ $$\frac{p(\theta^\prime|x_o)}{p(\theta|x_o)} =
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[270]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">kmax</span> <span class="o">=</span> <span class="mi">30</span>
