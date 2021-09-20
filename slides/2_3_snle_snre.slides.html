@@ -14404,7 +14404,7 @@ $$\frac{p(\theta^\prime|x_o)}{p(\theta|x_o)} =
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Finally,-we-use-the-remaining-samples-as-our-posterior">Finally, we use the remaining samples as our posterior<a class="anchor-link" href="#Finally,-we-use-the-remaining-samples-as-our-posterior">&#182;</a></h3><p><img src="./figures/2_3_snle_snre/mcmc_posterior.png" alt="drawing" width="300"/></p>
 <p>For this simple 1D problem, we can compare to a 'brute force' calculation:</p>
-<p><img src="./figures/2_2_snpe/simple_joint.png" alt="drawing" width="300"/></p>
+<p><img src="./figures/2_3_snle_snre/simple_joint_x_o_1.png" alt="drawing" width="300"/></p>
 
 </div>
 </div></section></section><section><section>
@@ -14425,7 +14425,7 @@ $$ d / (1 - d) = p(x|\theta) / p(x)$$
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>This is the same likelihood that we learned with SNLE, only now we have the normalization constant as well. We can use this to perform MCMC sampling as we did for SNLE.</p>
 <p>The advantage here is that training a classifier is usually easier than training a neural density estimator.</p>
-<p>However, a potential difficulty is that $d$ might be close to zero or one for many training pairs $(x, \theta)$, which can cause difficulties during trianing.</p>
+<p>However, a potential difficulty is that $d$ might be close to zero or one for many training pairs $(x, \theta)$, which can cause difficulties during training.</p>
 
 </div>
 </div></div></section></section><section><section>
@@ -14450,7 +14450,7 @@ $$ d / (1 - d) = p(x|\theta) / p(x)$$
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Learning-$p(%5Ctheta%7Cx)$-vs.--learning-$p(x%7C%5Ctheta)$-for-MCMC">Learning $p(\theta|x)$ vs.  learning $p(x|\theta)$ for MCMC<a class="anchor-link" href="#Learning-$p(%5Ctheta%7Cx)$-vs.--learning-$p(x%7C%5Ctheta)$-for-MCMC">&#182;</a></h3><ul>
+<h3 id="Learning-$p(%5Ctheta%7Cx)$-directly-vs.--learning-$p(x%7C%5Ctheta)$-for-MCMC">Learning $p(\theta|x)$ directly vs.  learning $p(x|\theta)$ for MCMC<a class="anchor-link" href="#Learning-$p(%5Ctheta%7Cx)$-directly-vs.--learning-$p(x%7C%5Ctheta)$-for-MCMC">&#182;</a></h3><ul>
 <li>Consider $\dim(x)$ and $\dim(\theta)$. Learning neural density estimators in high-dimensional spaces is hard, but neural nets can take high dimesional input easily. So use SNPE when $\dim(x) &gt;&gt; \dim(\theta)$, and SNLE/SNRE when $\dim(x) &lt;&lt; \dim(\theta)$</li>
 <li>Consider <strong>structure</strong> in $x$ or $\theta$. When one of these is an image (or time series), we could use a CNN (RNN) to process it as input. Specialized neural density estimators also exist for structured outputs. Other structure (graphs, sets, etc.) can also be exploited.</li>
 <li>Feasibility of MCMC depends on the shape and dimension of the posterior.</li>
