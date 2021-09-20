@@ -14106,14 +14106,14 @@ div.jp-OutputPrompt {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
 <li>Brief refresher on key concepts</li>
-<li>SNLE<ul>
+<li><strong>S</strong>equential <strong>N</strong>eural <strong>L</strong>ikelihood <strong>E</strong>stimation<ul>
 <li>Getting the posterior through Bayes' rule</li>
 <li>Why learn likelihoods?</li>
 <li>Likelihood learning demo</li>
 <li>Sampling via MCMC</li>
 </ul>
 </li>
-<li>SNRE</li>
+<li><strong>S</strong>equential <strong>N</strong>eural <strong>R</strong>atio <strong>E</strong>stimation</li>
 <li>Learning likelihoods vs. posteriors?</li>
 <li>Further reading</li>
 </ul>
@@ -14122,7 +14122,7 @@ div.jp-OutputPrompt {
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Refresher:-Prior,-Joint,-Likelihood-and-Posteior">Refresher: Prior, Joint, Likelihood and Posteior<a class="anchor-link" href="#Refresher:-Prior,-Joint,-Likelihood-and-Posteior">&#182;</a></h1><p><img src="./figures/2_2_snpe/simple_joint_all.png" alt="drawing" width="1500"/></p>
+<h1 id="Refresher:-Prior,-Joint,-Likelihood-and-Posterior">Refresher: Prior, Joint, Likelihood and Posterior<a class="anchor-link" href="#Refresher:-Prior,-Joint,-Likelihood-and-Posterior">&#182;</a></h1><p><img src="./figures/2_2_snpe/simple_joint_all.png" alt="drawing" width="1500"/></p>
 <p>Simulator parameters have prior distribution $p(\theta)$.</p>
 <p>For any <em>fixed</em> parameters $\theta$, observations are distributed according to the likelihood function $p(x|\theta)$. This is a well-normalized probability density in $x$, but not in $\theta$.</p>
 <p>Together, simulator parameters $\theta$ and observations $x$ follow the joint density $p(\theta, x) = p(\theta)p(x|\theta)$.</p>
@@ -14172,13 +14172,13 @@ div.jp-OutputPrompt {
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Why-SNLE?">Why SNLE?<a class="anchor-link" href="#Why-SNLE?">&#182;</a></h1><h2 id="We-want-the-posterior-$p(x%7C%5Ctheta)$,-so-why-learn-the-mapping-$%5Ctheta-%5Crightarrow-p(x%7C%5Ctheta)$-instead-of-$x-%5Crightarrow-p(%5Ctheta-%7C-x)$?">We want the posterior $p(x|\theta)$, so why learn the mapping $\theta \rightarrow p(x|\theta)$ instead of $x \rightarrow p(\theta | x)$?<a class="anchor-link" href="#We-want-the-posterior-$p(x%7C%5Ctheta)$,-so-why-learn-the-mapping-$%5Ctheta-%5Crightarrow-p(x%7C%5Ctheta)$-instead-of-$x-%5Crightarrow-p(%5Ctheta-%7C-x)$?">&#182;</a></h2>
+<h1 id="Why-SNLE?">Why SNLE?<a class="anchor-link" href="#Why-SNLE?">&#182;</a></h1><h2 id="We-want-the-posterior-$p(%5Ctheta%7Cx)$,-so-why-learn-the-mapping-$%5Ctheta-%5Crightarrow-p(x%7C%5Ctheta)$-instead-of-$x-%5Crightarrow-p(%5Ctheta-%7C-x)$?">We want the posterior $p(\theta|x)$, so why learn the mapping $\theta \rightarrow p(x|\theta)$ instead of $x \rightarrow p(\theta | x)$?<a class="anchor-link" href="#We-want-the-posterior-$p(%5Ctheta%7Cx)$,-so-why-learn-the-mapping-$%5Ctheta-%5Crightarrow-p(x%7C%5Ctheta)$-instead-of-$x-%5Crightarrow-p(%5Ctheta-%7C-x)$?">&#182;</a></h2>
 </div>
 </div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Likelihood-learning-two-clear-advantages:">Likelihood learning two clear advantages:<a class="anchor-link" href="#Likelihood-learning-two-clear-advantages:">&#182;</a></h2><ol>
-<li><p>When $\theta$ is not prior-sampled, SNPE requires correction since the posterior changes. But SNLE works out of the box on any $(\theta, x)$ simulation pairs since the likelihood doesn't change. We can sample $\theta$ from any distribution, or pick it with any algoirthm.</p>
+<li><p>When $\theta$ is not prior-sampled, SNPE requires correction since the posterior changes. But SNLE works out of the box on any $(\theta, x)$ simulation pairs since the likelihood doesn't change. We can sample $\theta$ from any distribution, or pick it with any algorithm.</p>
 </li>
 <li><p>With several statistically independent observations $x_i$, $p(x|\theta)=\prod_i p(x_i | \theta)$. Therefore we can learn the conditional distribution for just one observation. In contrast, learning $p(\theta | x)$ requires the network to take all observations as input at once, a more difficult learning task.</p>
 </li>
@@ -14450,11 +14450,11 @@ $$ d / (1 - d) = p(x|\theta) / p(x)$$
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Problem-specific-considerations">Problem-specific considerations<a class="anchor-link" href="#Problem-specific-considerations">&#182;</a></h2><h3 id="When-should-we-try-to-learn-$p(%5Ctheta%7Cx)$-directly,-and-when-should-we-learn-$p(x%7C%5Ctheta)$-and-use-MCMC?">When should we try to learn $p(\theta|x)$ directly, and when should we learn $p(x|\theta)$ and use MCMC?<a class="anchor-link" href="#When-should-we-try-to-learn-$p(%5Ctheta%7Cx)$-directly,-and-when-should-we-learn-$p(x%7C%5Ctheta)$-and-use-MCMC?">&#182;</a></h3><ul>
-<li>Consider the dimensions of both $x$ and $\theta$. Learning neural density estimators in high-dimensional spaces is challenging, but neural nets can take high dimesional input without much difficulty. So we can use SNPE when $\dim(x) &gt;&gt; \dim(\theta)$, and SNLE/SNRE when $\dim(x) &lt;&lt; \dim(\theta)$</li>
-<li>We can also make use of <strong>structure</strong> in $x$ or $\theta$. When one of these is an image (or time series), we could use a CNN (RNN) to process it as output. For learning distributions on $x$ or $\theta$, we can also use neural density estimators designed for these objects. Additional forms of structure (graphs, sets, etc.) can also be exploited.</li>
-<li>The feasibility of MCMC depends on the nature of the $\theta$ space, and its dimension.</li>
-<li>For high dimensional parameter spaces and expensive simulations, multi-round methods (where an initial posterior estimate is used to guide further simulations) seem to give a larger advantage. But SNPE might have issues when the prior has sharp boundaries, and repeated MCMC could end up more computationally expensive the the neural network training itself.</li>
+<h3 id="Learning-$p(%5Ctheta%7Cx)$-vs.--learning-$p(x%7C%5Ctheta)$-for-MCMC">Learning $p(\theta|x)$ vs.  learning $p(x|\theta)$ for MCMC<a class="anchor-link" href="#Learning-$p(%5Ctheta%7Cx)$-vs.--learning-$p(x%7C%5Ctheta)$-for-MCMC">&#182;</a></h3><ul>
+<li>Consider $\dim(x)$ and $\dim(\theta)$. Learning neural density estimators in high-dimensional spaces is hard, but neural nets can take high dimesional input easily. So use SNPE when $\dim(x) &gt;&gt; \dim(\theta)$, and SNLE/SNRE when $\dim(x) &lt;&lt; \dim(\theta)$</li>
+<li>Consider <strong>structure</strong> in $x$ or $\theta$. When one of these is an image (or time series), we could use a CNN (RNN) to process it as input. Specialized neural density estimators also exist for structured outputs. Other structure (graphs, sets, etc.) can also be exploited.</li>
+<li>Feasibility of MCMC depends on the shape and dimension of the posterior.</li>
+<li>For high dimensional parameter spaces and expensive simulations, multi-round methods (initial posterior estimate used to guide simulations) are helpful. But SNPE might have issues when the prior has sharp boundaries, and repeated MCMC could be quite slow.</li>
 <li>All of these considerations are active areas of research, and the set of SBI/LFI problems for which these methods have been tested remains small!</li>
 </ul>
 
